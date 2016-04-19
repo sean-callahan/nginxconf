@@ -5,8 +5,8 @@
 package nginxconf
 
 // Directive represents a basic Nginx configuration file directive.
-// The directive is considered a block if it contains children and con
-// be checked by calling the Block() function.
+// The directive is considered a block if it contains children and can
+// be checked by calling the Block() method.
 type Directive struct {
 	Name     string
 	Args     []string
@@ -36,8 +36,8 @@ func (d *Directive) AddChild(c *Directive) *Directive {
 	return d
 }
 
-// Level returns the number of level down the block tree the directive
-// is located. If the directive has not parents, this value is 0.
+// Level returns the number of levels down the block tree the directive
+// is located. If the directive has no parents, this value is 0.
 func (d *Directive) Level() int {
 	cur := d
 	level := 0
