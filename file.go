@@ -1,6 +1,9 @@
 package nginxconf
 
-import "os"
+import (
+	"fmt"
+	"os"
+)
 
 // File represents a nginx config file.
 // It wraps os.File
@@ -21,7 +24,7 @@ func OpenFile(path string) (*File, error) {
 
 // WriteDirective writes one directive to the file.
 // Call this function for each directive to write.
-func (f *File) WriteDirective(d *Directive) error {
+func (f *File) WriteDirective(d fmt.Stringer) error {
 	b := []byte(d.String() + "\n")
 	_, err := f.Write(b)
 	if err != nil {
