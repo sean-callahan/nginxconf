@@ -1,6 +1,9 @@
 package nginxconf
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 var testComments = []string{
 	"Foo Bar",
@@ -23,4 +26,10 @@ func TestComment(t *testing.T) {
 			t.Fail()
 		}
 	}
+}
+
+func ExampleComment() {
+	c := Comment(" nginxconf comment")
+	fmt.Println(c)
+	// Output: # nginxconf comment
 }
