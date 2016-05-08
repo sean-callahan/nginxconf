@@ -6,6 +6,6 @@ package nginxconf
 type Comment string
 
 // String returns comment with a hash `#` prefix.
-func (c *Comment) String() string {
-	return "#" + string(*c)
+func (c Comment) String() string {
+	return "#" + string(c)
 }
